@@ -18,7 +18,7 @@ use std::fmt::{self, Display, Formatter};
 use std::time::Instant;
 
 /// OpenCL kernel source
-const OCL_SRC: &str = include_str!("kristforge.cl");
+const OCL_SRC: &str = include_str!("tenebraforge.cl");
 
 /// An OpenCL device that can be used for mining
 #[derive(Debug)]

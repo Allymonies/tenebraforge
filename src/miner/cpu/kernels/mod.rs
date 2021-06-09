@@ -25,7 +25,7 @@ fn score_output(h: &[u8]) -> u64 {
 mod tests {
     use super::super::framework::KernelInput;
     use super::*;
-    use crate::krist::address::Address;
+    use crate::tenebra::address::Address;
     use ring::digest::{digest, SHA256};
     use std::str::FromStr;
 

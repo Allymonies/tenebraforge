@@ -2,8 +2,8 @@ pub mod cpu;
 pub mod gpu;
 pub mod interface;
 
-use crate::krist::address::Address;
-use crate::krist::block::ShortHash;
+use crate::tenebra::address::Address;
+use crate::tenebra::block::ShortHash;
 use crate::miner::cpu::{CpuMiner, KernelType};
 use crate::miner::gpu::OclMiner;
 use crate::miner::interface::MinerInterface;

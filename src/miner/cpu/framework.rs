@@ -1,7 +1,7 @@
 //! CPU miner core framework
 
-use crate::krist::address::Address;
-use crate::krist::block::ShortHash;
+use crate::tenebra::address::Address;
+use crate::tenebra::block::ShortHash;
 use crossbeam::atomic::AtomicCell;
 use crossbeam::channel::Sender;
 use std::str;

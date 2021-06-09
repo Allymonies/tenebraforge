@@ -1,5 +1,5 @@
 use super::Target;
-use crate::krist::address::Address;
+use crate::tenebra::address::Address;
 use crossbeam::channel::{Receiver, TryRecvError};
 use futures::channel::mpsc::UnboundedSender;
 use indicatif::ProgressBar;

@@ -2,7 +2,7 @@
 
 ## 3.1.5
 
-- Fix mined krist being double-counted (https://github.com/tmpim/kristforge/issues/16)
+- Fix mined tenebra being double-counted (https://github.com/tmpim/tenebraforge/issues/16)
 - Updated dependencies
 
 ## 3.1.4
@@ -11,7 +11,7 @@
 
 ## 3.1.3 
 
-- Allow specifying krist address via `KRISTFORGE_ADDRESS` environment variable
+- Allow specifying tenebra address via `TENEBRAFORGE_ADDRESS` environment variable
 - Fix crash related to OpenCL compiler unloading
 
 ## 3.1.2

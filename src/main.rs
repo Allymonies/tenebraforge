@@ -1,8 +1,8 @@
-mod krist;
+mod tenebra;
 mod miner;
 mod network;
 
-use crate::krist::address::Address;
+use crate::tenebra::address::Address;
 use crate::miner::interface::MinerInterface;
 use crate::miner::Target;
 use crate::network::{ClientMessage, ServerMessage};
@@ -18,7 +18,7 @@ use structopt::StructOpt;
 #[derive(Debug, StructOpt)]
 #[structopt(about, author)]
 pub enum Opts {
-    /// Connect to the krist node and log incoming messages for troubleshooting
+    /// Connect to the tenebra node and log incoming messages for troubleshooting
     NetLog {
         #[structopt(flatten)]
         net_cfg: NetConfig,
@@ -27,7 +27,7 @@ pub enum Opts {
     /// Get information about mining hardware
     Info {},
 
-    /// Mine krist
+    /// Mine tenebra
     Mine {
         #[structopt(flatten)]
         net_cfg: NetConfig,
@@ -35,8 +35,8 @@ pub enum Opts {
         #[structopt(flatten)]
         miner_cfg: MinerConfig,
 
-        /// The address to mine krist for
-        #[structopt(env = "KRISTFORGE_ADDRESS")]
+        /// The address to mine tenebra for
+        #[structopt(env = "TENEBRAFORGE_ADDRESS")]
         address: Address,
     },
 }
@@ -91,7 +91,7 @@ async fn mine(
     let wallet_pb = multi_pb.add(ProgressBar::new_spinner());
     wallet_pb.set_style(ProgressStyle::default_bar().template("{wide_msg}"));
     wallet_pb.set_message(&format!("Mining for {}", address));
-    let mut mined_kst = 0;
+    let mut mined_tst = 0;
 
     let target_pb = multi_pb.add(ProgressBar::new_spinner());
     target_pb.set_style(ProgressStyle::default_spinner().template("Current target: {wide_msg}"));
@@ -145,8 +145,8 @@ async fn mine(
             );
 
             if address == block.address && msg_type == "response" {
-                mined_kst += block.value;
-                wallet_pb.set_message(&format!("Mined {} KST for {}", mined_kst, address));
+                mined_tst += block.value;
+                wallet_pb.set_message(&format!("Mined {} TST for {}", mined_tst, address));
             }
 
             target_pb.set_message(&format!(

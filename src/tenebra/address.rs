@@ -3,13 +3,13 @@ use std::convert::{TryFrom, TryInto};
 use std::fmt::{self, Debug, Display, Formatter};
 use std::str::FromStr;
 
-/// A krist address - v1 and v2 compatible
+/// A tenebra address - v1 and v2 compatible
 #[derive(Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(try_from = "&str", into = "String")]
 pub struct Address([u8; Address::LENGTH]);
 
 impl Address {
-    /// The required length of krist addresses, in bytes
+    /// The required length of tenebra addresses, in bytes
     pub const LENGTH: usize = 10;
 
     /// The set of allowed characters for v1 addresses
@@ -18,7 +18,7 @@ impl Address {
     /// The set of allowed characters for v2 addresses
     pub const V2_CHARS: &'static str = "1234567890abcdefghijklmnopqrstuvwxyz";
 
-    /// Get this krist address as a string slice
+    /// Get this tenebra address as a string slice
     pub fn as_str(&self) -> &str {
         // the contents were originally from a utf-8 string, so this should
         // never panic
@@ -45,7 +45,7 @@ impl FromStr for Address {
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         // v1 and v2 addresses allow a different set of characters
-        let allowed = if s.starts_with('k') {
+        let allowed = if s.starts_with('t') {
             Self::V2_CHARS
         } else {
             Self::V1_CHARS
@@ -117,7 +117,7 @@ mod tests {
     #[test]
     fn check_valid_addresses() {
         assert_eq!(Address::from_str("abcdef1234").unwrap(), "abcdef1234",);
-        assert_eq!(Address::from_str("kabcdefghi").unwrap(), "kabcdefghi",);
+        assert_eq!(Address::from_str("tabcdefghi").unwrap(), "tabcdefghi",);
     }
 
     #[test]
@@ -134,7 +134,7 @@ mod tests {
 
     #[test]
     fn test_serialize_deserialize() {
-        let address = Address::from_str("kabcdefghi").unwrap();
+        let address = Address::from_str("tabcdefghi").unwrap();
 
         assert_eq!(
             address,

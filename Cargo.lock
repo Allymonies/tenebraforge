@@ -796,36 +796,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "kristforge"
-version = "3.1.5"
-dependencies = [
- "crossbeam",
- "dirs",
- "dynamic_ocl",
- "enumset",
- "futures",
- "hex",
- "indicatif",
- "isahc",
- "itertools",
- "lazy_static",
- "libc",
- "log",
- "num_cpus",
- "rand 0.7.3",
- "ring",
- "serde",
- "serde_json",
- "simplelog",
- "structopt",
- "thiserror",
- "tokio",
- "tokio-tungstenite",
- "url",
- "winapi 0.3.9",
-]
-
-[[package]]
 name = "lazy_static"
 version = "1.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1585,6 +1555,36 @@ dependencies = [
  "rand 0.8.3",
  "redox_syscall",
  "remove_dir_all",
+ "winapi 0.3.9",
+]
+
+[[package]]
+name = "tenebraforge"
+version = "3.1.5"
+dependencies = [
+ "crossbeam",
+ "dirs",
+ "dynamic_ocl",
+ "enumset",
+ "futures",
+ "hex",
+ "indicatif",
+ "isahc",
+ "itertools",
+ "lazy_static",
+ "libc",
+ "log",
+ "num_cpus",
+ "rand 0.7.3",
+ "ring",
+ "serde",
+ "serde_json",
+ "simplelog",
+ "structopt",
+ "thiserror",
+ "tokio",
+ "tokio-tungstenite",
+ "url",
  "winapi 0.3.9",
 ]
 

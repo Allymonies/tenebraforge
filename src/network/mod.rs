@@ -1,10 +1,10 @@
-//! Networking code for interacting with a krist node
+//! Networking code for interacting with a tenebra node
 
 mod http;
 mod ws;
 
-use crate::krist::address::Address;
-use crate::krist::block::Block;
+use crate::tenebra::address::Address;
+use crate::tenebra::block::Block;
 use futures::{Sink, TryStream};
 use isahc::http::Uri;
 use serde::de::Error as _;
@@ -15,8 +15,8 @@ use structopt::StructOpt;
 
 #[derive(Debug, StructOpt)]
 pub struct NetConfig {
-    /// The krist node to connect to
-    #[structopt(short, long, default_value = "https://krist.ceriat.net/ws/start")]
+    /// The tenebra node to connect to
+    #[structopt(short, long, default_value = "https://tenebra.lil.gay/ws/start")]
     pub node: Uri,
 }
 
@@ -130,14 +130,14 @@ mod tests {
         let json = json!({
             "id": 5,
             "type": "submit_block",
-            "address": "k5ztameslf",
+            "address": "t5ztameslf",
             "nonce": "aaaaaaaaaaaaaaa"
         });
 
         let msg = ClientMessage::SubmitBlock {
             id: NonZeroU64::new(5).unwrap(),
             msg_type: SubmitBlockType,
-            address: Address::from_str("k5ztameslf").unwrap(),
+            address: Address::from_str("t5ztameslf").unwrap(),
             nonce: "aaaaaaaaaaaaaaa".to_string(),
         };
 
